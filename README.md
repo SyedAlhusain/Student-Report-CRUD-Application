@@ -160,7 +160,7 @@ Navigate to the React Folder:
 # React Setup
 Open a terminal or command prompt and navigate to the React project folder.
 ```bash
-cd IndividualAssignmentSyedHusain\SourceCode\React_Frontend/myreactdev
+cd SourceCode\React_Frontend/myreactdev
 ```
 
 # Create a React App:
