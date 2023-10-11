@@ -1,13 +1,15 @@
+// Import necessary modules and components
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// Define the CreateCourse component
 export default function CreateCourse() {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({ CourseID: "", CourseTitle: "", InstructorID: "" });
   const [instructorOptions, setInstructorOptions] = useState([]);
 
-  // Fetch available Instructors when the component mounts
+  // Use the useEffect hook to fetch available Instructors when the component mounts
   useEffect(() => {
     axios.get("http://127.0.0.1:5000/listinstructors").then((response) => {
       // Combine InstructorID and Name to display in the options
@@ -19,15 +21,18 @@ export default function CreateCourse() {
     });
   }, []);
 
+  // Handle input changes
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post("http://127.0.0.1:5000/courseadd", inputs).then((response) => {
+      // Redirect to the courses page after adding a course
       navigate("/courses");
     });
   };
@@ -66,6 +71,7 @@ export default function CreateCourse() {
               onChange={handleChange}
             >
               <option value="">Select an Instructor</option>
+              {/* Map instructor options for the select element */}
               {instructorOptions.map((instructorOption) => (
                 <option key={instructorOption.value} value={instructorOption.value}>
                   {instructorOption.label}
@@ -81,3 +87,4 @@ export default function CreateCourse() {
     </div>
   );
 }
+
