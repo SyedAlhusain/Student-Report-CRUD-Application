@@ -204,6 +204,22 @@ Now you click on the local side directly to run the application on go to you bro
 
 # Code
 
+- [App.py](SourceCode/Flask_App_Backend/Flask_React_Crud/App.py)
+- [App.js](SourceCode/React_Frontend/myreactdev/src/App.js)
+- [CreateCourse.js](SourceCode/React_Frontend/myreactdev/src/pages/CreateCourse.js)
+- [CreateEnrollment.js](SourceCode/React_Frontend/myreactdev/src/pages/CreateEnrollment.js)
+- [CreateInstructor.js](SourceCode/React_Frontend/myreactdev/src/pages/CreateInstructor.js)
+- [CreateUser.js](SourceCode/React_Frontend/myreactdev/src/pages/CreateUser.js)
+- [EditCourse.js](SourceCode/React_Frontend/myreactdev/src/pages/EditCourse.js)
+- [EditEnrollment.js](SourceCode/React_Frontend/myreactdev/src/pages/EditEnrollment.js)
+- [EditInstructor.js](SourceCode/React_Frontend/myreactdev/src/pages/EditInstructor.js)
+- [EditUser.js](SourceCode/React_Frontend/myreactdev/src/pages/EditUser.js)
+- [ListCoursePage.js](SourceCode/React_Frontend/myreactdev/src/pages/ListCoursePage.js)
+- [ListEnrollmentPage.js](SourceCode/React_Frontend/myreactdev/src/pages/ListEnrollmentPage.js)
+- [ListInstructorPage.js](SourceCode/React_Frontend/myreactdev/src/pages/ListInstructorPage.js)
+- [ListUserPage.js](SourceCode/React_Frontend/myreactdev/src/pages/ListUserPage.js)
+
+
 - **App.py**
   - Located in: SourceCode\Flask_App_Backend\Flask_React_Crud
 
