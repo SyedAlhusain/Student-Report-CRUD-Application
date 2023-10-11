@@ -204,6 +204,49 @@ Now you click on the local side directly to run the application on go to you bro
 
 # Code
 
+- **App.py**
+  - Located in: SourceCode\Flask_App_Backend\Flask_React_Crud
+
+- **App.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src
+
+- **CreateCourse.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **CreateEnrollment.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **CreateInstructor.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **CreateUser.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **EditCourse.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **EditEnrollment.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **EditInstructor.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **EditUser.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **ListCoursePage.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **ListEnrollmentPage.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **ListInstructorPage.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+- **ListUserPage.js**
+  - Located in: SourceCode\React_Frontend\myreactdev\src\pages
+
+
 The Code files include:
 
 App.py (located in SourceCode\Flask_App_Backend\Flask_React_Crud)
