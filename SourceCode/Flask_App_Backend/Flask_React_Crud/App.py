@@ -78,7 +78,7 @@ def useradd():
     db.session.commit()
 
     return student_schema.jsonify(students)
-    
+
 class Instructors(db.Model):
     __tablename__ = 'instructors'
     InstructorID = db.Column(db.Integer, primary_key=True)
@@ -141,8 +141,6 @@ def instructoradd():
 
     return instructor_schema.jsonify(instructor)
 
-
-
 # Define the Courses model with a foreign key to Instructors
 class Courses(db.Model):
     __tablename__ = 'courses'
@@ -150,7 +148,8 @@ class Courses(db.Model):
     CourseTitle = db.Column(db.String(255))
     InstructorID = db.Column(db.Integer, db.ForeignKey('instructors.InstructorID'))
 
-    def __init__(self, CourseTitle, InstructorID):
+    def __init__(self, CourseID, CourseTitle, InstructorID):
+        self.CourseID = CourseID
         self.CourseTitle = CourseTitle
         self.InstructorID = InstructorID
 
@@ -161,8 +160,6 @@ class CourseSchema(ma.Schema):
 
 course_schema = CourseSchema()
 courses_schema = CourseSchema(many=True)
-
-# ... your existing Students and Instructors models and routes ...
 
 # Add a route to list all courses
 @app.route('/listcourses', methods=['GET'])
@@ -182,13 +179,20 @@ def coursedetails(CourseID):
 def courseupdate(CourseID):
     course = Courses.query.get(CourseID)
 
+    # Include CourseID in the request JSON and extract it
+    CourseID = request.json['CourseID']
+
     CourseTitle = request.json['CourseTitle']
     InstructorID = request.json['InstructorID']
+    
+    # Set the updated values
+    course.CourseID = CourseID
     course.CourseTitle = CourseTitle
     course.InstructorID = InstructorID
 
     db.session.commit()
     return course_schema.jsonify(course)
+
 
 # Add a route to delete a course
 @app.route('/coursedelete/<int:CourseID>', methods=['DELETE'])
@@ -201,16 +205,15 @@ def coursedelete(CourseID):
 # Add a route to add a new course
 @app.route('/courseadd', methods=['POST'])
 def courseadd():
+    CourseID = request.json['CourseID']  # Include CourseID in the request JSON
     CourseTitle = request.json['CourseTitle']
     InstructorID = request.json['InstructorID']
 
-    course = Courses(CourseTitle=CourseTitle, InstructorID=InstructorID)
+    course = Courses(CourseID=CourseID, CourseTitle=CourseTitle, InstructorID=InstructorID)
     db.session.add(course)
     db.session.commit()
 
     return course_schema.jsonify(course)
-
-
 
 # Enrollments Model
 class Enrollments(db.Model):
