@@ -1,20 +1,25 @@
+// Import necessary modules and components
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+// Define the ListCoursePage component
 export default function ListCoursePage() {
   const [courses, setCourses] = useState([]);
 
+  // Fetch the list of courses when the component mounts
   useEffect(() => {
     getCourses();
   }, []);
 
+  // Function to fetch the list of courses
   function getCourses() {
     axios.get("http://127.0.0.1:5000/listcourses").then((response) => {
       setCourses(response.data);
     });
   }
 
+  // Function to delete a course
   const deleteCourse = (CourseID) => {
     axios.delete(`http://127.0.0.1:5000/coursedelete/${CourseID}`).then((response) => {
       getCourses(); // Refresh the list of courses after deletion
@@ -66,3 +71,4 @@ export default function ListCoursePage() {
     </div>
   );
 }
+
