@@ -1,14 +1,18 @@
+// Import necessary modules and components
 import React, { useEffect, useState } from "react";
-import axios from "axios"; // npm install axios --save
+import axios from "axios";
 import { Link } from "react-router-dom";
 
+// Define the ListInstructorPage component
 export default function ListInstructorPage() {
   const [instructors, setInstructors] = useState([]);
 
+  // Fetch the list of instructors when the component mounts
   useEffect(() => {
     getInstructors();
   }, []);
 
+  // Function to fetch the list of instructors
   function getInstructors() {
     axios.get("http://127.0.0.1:5000/listinstructors").then(function (response) {
       console.log(response.data);
@@ -16,10 +20,11 @@ export default function ListInstructorPage() {
     });
   }
 
+  // Function to handle instructor deletion
   const deleteInstructor = (id) => {
     axios.delete(`http://127.0.0.1:5000/instructordelete/${id}`).then(function (response) {
       console.log(response.data);
-      getInstructors();
+      getInstructors(); // Refresh the list of instructors after deletion
     });
     alert("Successfully Deleted");
   }
@@ -75,3 +80,4 @@ export default function ListInstructorPage() {
     </div>
   );
 }
+
