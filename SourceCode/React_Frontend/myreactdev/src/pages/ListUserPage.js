@@ -1,13 +1,18 @@
+// Import necessary modules and components
 import React, { useEffect, useState } from "react";
-import axios from "axios"; // npm install axios --save
+import axios from "axios";
 import { Link } from "react-router-dom";
 
+// Define the ListUserPage component
 export default function ListUserPage() {
   const [Students, setUsers] = useState([]);
+
+  // Fetch the list of users (students) when the component mounts
   useEffect(() => {
     getUsers();
   }, []);
 
+  // Function to fetch the list of users
   function getUsers() {
     axios.get("http://127.0.0.1:5000/listusers").then(function (response) {
       console.log(response.data);
@@ -15,10 +20,11 @@ export default function ListUserPage() {
     });
   }
 
+  // Function to handle user (student) deletion
   const deleteUser = (id) => {
     axios.delete(`http://127.0.0.1:5000/userdelete/${id}`).then(function (response) {
       console.log(response.data);
-      getUsers();
+      getUsers(); // Refresh the list of users after deletion
     });
     alert("Successfully Deleted");
   }
