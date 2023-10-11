@@ -173,6 +173,12 @@ Open a terminal or command prompt and navigate to the React project folder.
 cd SourceCode\React_Frontend/myreactdev
 ```
 
+Check If there a another folder IndividualAssignment-SyedHusain-main inside IndividualAssignment-SyedHusain-main
+If there is then do:
+```bash
+cd IndividualAssignment-SyedHusain-main\SourceCode\React_Frontend/myreactdev
+```
+
 # Create a React App:
 
 Run the following commands to create a new React app:
