@@ -88,6 +88,8 @@ cd IndividualAssignment-SyedHusain-main\SourceCode\Flask_App_Backend\Flask_React
 
 ```bash
 py -3 -m venv venv
+```
+```bash
 venv\Scripts\activate
 ```
 
@@ -96,9 +98,17 @@ venv\Scripts\activate
 
 ```bash
 pip install Flask
+```
+```bash
 pip install pymysql
+```
+```bash
 pip install -U Flask-SQLAlchemy
+```
+```bash
 pip install flask-marshmallow
+```
+```bash
 pip install Flask-Cors
 ```
 
@@ -174,7 +184,9 @@ npx create-react-app myreactdev
 ## Install the required React libraries using npm:
 
 ```bash
-npm install react-router-dom --save 
+npm install react-router-dom --save
+```
+```bash
 npm install axios --save
 ```
 
