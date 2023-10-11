@@ -1,23 +1,29 @@
+// Import necessary modules and components
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// Define the CreateInstructor component
 export default function CreateInstructor() {
   const navigate = useNavigate();
 
+  // Define the state for input fields
   const [inputs, setInputs] = useState({ InstructorID: "", Name: "", Department: "" });
 
+  // Handle input changes
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Send a POST request to add a new instructor
     axios.post("http://127.0.0.1:5000/instructoradd", inputs).then(function (response) {
-      console.log(response.data);
+      console.log(response.data); // Log the response data
       navigate("/instructor"); // Redirect to the instructor list page after adding a new instructor
     });
   };
