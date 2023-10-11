@@ -1,24 +1,30 @@
+// Import necessary modules and components
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// Define the CreateUser component
 export default function CreateUser() {
   const navigate = useNavigate();
 
+  // Define the state for input fields
   const [inputs, setInputs] = useState({ StudentID: "", Name: "", CreditsEarned: "" });
 
+  // Handle input changes
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Send a POST request to add a new user (student)
     axios.post("http://127.0.0.1:5000/useradd", inputs).then(function (response) {
-      console.log(response.data);
-      navigate("/");
+      console.log(response.data); // Log the response data
+      navigate("/"); // Redirect to the home page after adding a new user
     });
   };
 
@@ -71,3 +77,4 @@ export default function CreateUser() {
     </div>
   );
 }
+
