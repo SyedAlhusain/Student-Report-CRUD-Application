@@ -74,7 +74,7 @@ export default function EditUser() {
                   onChange={handleChange}
                 />
               </div>
-              <div className "mb-3">
+              <div className = "mb-3">
                 <label>Credits Earned</label>
                 <input
                   type="text"
