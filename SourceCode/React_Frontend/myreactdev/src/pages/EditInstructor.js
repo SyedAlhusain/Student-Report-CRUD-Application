@@ -1,11 +1,14 @@
+// Import necessary modules and components
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
+// Define the EditInstructor component
 export default function EditInstructor() {
   const navigate = useNavigate();
   const { InstructorID } = useParams();
 
+  // Define a function to fetch instructor details
   const getInstructor = useCallback(() => {
     axios.get(`http://127.0.0.1:5000/instructordetails/${InstructorID}`).then(function (response) {
       console.log(response.data);
@@ -13,22 +16,26 @@ export default function EditInstructor() {
     });
   }, [InstructorID]);
 
+  // Define states for instructor details
   const [inputs, setInputs] = useState({
     InstructorID: "",
     Name: "",
     Department: "",
   });
 
+  // Fetch instructor details when the component mounts
   useEffect(() => {
-    getInstructor();
+    getInstructor(); // Fetch instructor details
   }, [getInstructor]);
 
+  // Handle input changes
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  // Handle form submission to update the instructor
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -88,3 +95,4 @@ export default function EditInstructor() {
     </div>
   );
 }
+
