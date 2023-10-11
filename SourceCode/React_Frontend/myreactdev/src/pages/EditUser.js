@@ -1,12 +1,14 @@
+// Import necessary modules and components
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
+// Define the EditUser component
 export default function EditUser() {
   const navigate = useNavigate();
   const { StudentID } = useParams();
 
-  // Define getUser inside a useCallback hook
+  // Define a function to fetch user details
   const getUser = useCallback(() => {
     axios.get(`http://127.0.0.1:5000/userdetails/${StudentID}`).then(function (response) {
       console.log(response.data);
@@ -14,22 +16,26 @@ export default function EditUser() {
     });
   }, [StudentID]);
 
+  // Define states for user details
   const [inputs, setInputs] = useState({
     StudentID: "",
     Name: "",
     CreditsEarned: "",
   });
 
+  // Fetch user details when the component mounts
   useEffect(() => {
-    getUser();
+    getUser(); // Fetch user details
   }, [getUser]);
 
+  // Handle input changes
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  // Handle form submission to update the user
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -46,7 +52,7 @@ export default function EditUser() {
         <div className="row">
           <div className="col-2"></div>
           <div className="col-8">
-            <h1>Edit user</h1>
+            <h1>Edit User</h1>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label>Student ID</label>
@@ -68,7 +74,7 @@ export default function EditUser() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="mb-3">
+              <div className "mb-3">
                 <label>Credits Earned</label>
                 <input
                   type="text"
