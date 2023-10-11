@@ -1,5 +1,5 @@
 # Video Tutorials
-- [Video Tutorial of running the source code](https://youtu.be/oq2P988w-MQ)
+- [Video Tutorial of running the source code](https://youtu.be/psBa_KsNOmU)
 - [Video Tutorial of running the application](https://www.youtube.com/watch?v=s5rXZN1cev4)
 
 # Installation and Setup
@@ -73,13 +73,13 @@ CREATE TABLE Enrollments (
 Open a terminal or command prompt and navigate to the Flask project folder. Use the terminal for the IndividualAssignmentSource code.
 
 ```bash
-cd IndividualAssignment-SyedHusain-main\SourceCode\Flask_App_Backend\Flask_React_Crud
+cd SourceCode\Flask_App_Backend\Flask_React_Crud
 ```
 
 Check If there a another folder Flask_React_Crud inside IndividualAssignmentSourceCode\Flask_React_Crud
 If there is then do:
 ```bash
-cd IndividualAssignment-SyedHusain-main\SourceCode\Flask_App_Backend\Flask_React_Crud\Flask_React_Crud
+cd SourceCode\Flask_App_Backend\Flask_React_Crud\Flask_React_Crud
 ```
 
 # Create and Activate a Virtual Environment:
