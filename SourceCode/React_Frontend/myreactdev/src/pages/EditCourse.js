@@ -1,37 +1,44 @@
+// Import necessary modules and components
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
+// Define the EditCourse component
 const EditCourse = () => {
   const navigate = useNavigate();
   const { CourseID } = useParams();
 
+  // Define a function to fetch course details
   const getCourse = useCallback(() => {
     axios.get(`http://127.0.0.1:5000/coursedetails/${CourseID}`).then((response) => {
       setCourse(response.data);
     });
   }, [CourseID]);
 
+  // Define states for course details and instructors
   const [course, setCourse] = useState({ CourseID: "", CourseTitle: "", InstructorID: "" });
   const [instructors, setInstructors] = useState([]);
 
+  // Fetch course details and list of instructors when the component mounts
   useEffect(() => {
-    getCourse();
+    getCourse(); // Fetch course details
     axios.get("http://127.0.0.1:5000/listinstructors").then((response) => {
-      setInstructors(response.data);
+      setInstructors(response.data); // Fetch the list of instructors
     });
   }, [getCourse]);
 
+  // Handle input changes
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setCourse((values) => ({ ...values, [name]: value }));
   };
 
+  // Handle form submission to update the course
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.put(`http://127.0.0.1:5000/courseupdate/${CourseID}`, course).then((response) => {
-      navigate("/courses");
+      navigate("/courses"); // Redirect to the course list page after updating the course
     });
   };
 
@@ -85,3 +92,4 @@ const EditCourse = () => {
 };
 
 export default EditCourse;
+
