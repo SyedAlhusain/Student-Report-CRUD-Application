@@ -1,20 +1,25 @@
+// Import necessary modules and components
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+// Define the ListEnrollmentPage component
 export default function ListEnrollmentPage() {
   const [enrollments, setEnrollments] = useState([]);
 
+  // Fetch the list of enrollments when the component mounts
   useEffect(() => {
     getEnrollments();
   }, []);
 
+  // Function to fetch the list of enrollments
   function getEnrollments() {
     axios.get("http://127.0.0.1:5000/enrollments").then((response) => {
       setEnrollments(response.data);
     });
   }
 
+  // Function to handle enrollment deletion
   const handleDelete = (enrollmentID) => {
     axios
       .delete(`http://127.0.0.1:5000/enrollmentdelete/${enrollmentID}`)
@@ -71,3 +76,4 @@ export default function ListEnrollmentPage() {
     </div>
   );
 }
+
