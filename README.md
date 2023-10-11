@@ -1,6 +1,6 @@
 # Video Tutorials
 - [Video Tutorial of running the source code](https://youtu.be/psBa_KsNOmU)
-- [Video Tutorial of running the application](https://www.youtube.com/watch?v=s5rXZN1cev4)
+- [Video Tutorial of running the CRUD application](https://www.youtube.com/watch?v=7RyabFG-slM)
 
 # Installation and Setup
 ## Prerequisites
